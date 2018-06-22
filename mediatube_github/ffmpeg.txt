@@ -1,0 +1,17 @@
+ffmpeg -i input.mp4 -c:v libx264 -crf 23 -preset medium -c:a aac -strict -2 -b:a 128k -ar 44100 -ac 2 output.mp4
+du -hsx * | sort -rh | head -10
+
+1. convert XYZ.mp4 -> XYZ_repaired.mp4
+2. delete XYZ.mp4 
+3. rename XYZ.mp4 to XYZ_repaired.mp4
+
+
+update mediaitem set active = -1 where repo_name in 
+('kp6j8keicvi9um7hcg9j', '00hkz8g8ukx57t5b5ieu', '7h7jxbvihvgnjtt1joxj', '3qsnt2ucclhdflho2d9r',
+'mldrclc78vngco54n54f', 'ab1ikcifkrl6ewizssli', 'ljv1b8lggh73jsda28c6', 't4oc4c0xih8jk13ftlmd', 'p50u3bmhkl23eo4dff2s', '6jq1n98oqa9rda4fbsus', 'lnz1wt88sv1bofss2050',
+'is8hj4gfeqhbuem2trx0', 'n0cm9xpo8b8ct2b7dr60', '26shnmu87vuqtpo6x32t', 'qm3utajvbn12b73on2pb', 'qrwu25gxope77wmk7pw0', 'gwl821lze85vacm4919h',
+'j708ldbctbdu9x0g6ikh');
+
+// create thumnails
+
+convert -delay 50 -loop 0 *.jpg result.gif

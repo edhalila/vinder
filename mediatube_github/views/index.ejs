@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Jan's Mediatube</title>
+        <link href="http://192.168.178.54:3000/assets/site.css" type="text/css" rel="stylesheet"/>
+        <script type="text/javascript" src="http://192.168.178.54:3000/assets/js/jwplayer.js"></script>
+    </head>
+    <body>
+    <div id="header">
+        <div style="float: left; margin-left: 20px"><a href="http://192.168.178.54:3000/<%=category%>">JanTube</a> - Wir chillen bei nem guten Film jetzt</div>
+        <div style="float: right; margin-right: 20px;">Order by Views | Added</div>
+    </div>
+
+    <div id="content">
+        <div style="display: inline-block;">
+
+    <%if(mode=='select') {%>
+            <div style="display: table;">
+                <% movies.forEach(function(row) { %>
+                    <div style="display: table-row">
+                        <% row.forEach(function(movie) { %>
+                            <div style="display: table-cell">
+                                <div class="item">
+                                    <table style="color: #ffffff">
+                                        <tr><td style="font-size: 12px; margin-top: 4px;"><%=movie.staging_name.substring(0,20)%></td></tr>
+                                        <tr><td><a href="/<%=category%>/<%=movie.repo_name%>">
+                                                    <img class="thumbnail" style="width: 170px; height: 150px" src="assets/repository/thumbnails_<%=movie.repo_name%>/img001.jpg"></a>
+                                            </td></tr>
+                                        <tr><td style="font-size: 12px; align: left">views: <%=movie.views%></td></tr>
+                                    </table>
+                                </div>
+                            </div>
+                        <%});%>
+                    </div>
+                <% }); %>
+            </div>
+    <%}%>
+    <%if(mode=='watch') {%>
+            <div style="display: inline-block; margin-top: 50px; margin-bottom: 60px;">
+                <div id="player">Loading the player...</div>
+                <script type="text/javascript">
+                    jwplayer("player").setup({
+                        file: "http://192.168.178.54:3000/assets/repository/<%=movie.repo_name%>.mp4",
+                        image: "http://192.168.178.54:3000/assets/repository/thumbnails_<%=movie.repo_name%>/img001.jpg"
+                    });
+                </script>
+            </div>
+    <%}%>
+        </div>
+    </div>
+
+    <div id="footer">footer</div>
+    </body>
+</html>
