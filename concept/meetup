@@ -1,0 +1,36 @@
+https://github.com/foobaroo/vinder
+
+frontend: joao, hamid
+backend: jan, sabine
+
+/login POST
+
+{ username: 'max' }
+
+returns: { error: 0 } --> ok, user found
+         { error: ... } --> not ok, user not found
+
+/signup POST
+
+{ username: 'max', profiletext: 'hallo blabla' }
+
+/upload POST
+file 
+
+returns: { error: 0 } --> upload was okay
+         { error: ... } --> 
+
+file
+/vinder/fileupload/public/index.html --> this form works with backend already
+
+
+/match POST
+{ user1: 'max', user2: 'julia' }
+
+returns: { match: 1 } --> match
+         { match: 0 } --> no match
+
+
+/nextuser GET
+{ video: 'http://192.168.178.50/files/max.mp4', profiletext: 'hallo blabla', name: 'max' }
+
